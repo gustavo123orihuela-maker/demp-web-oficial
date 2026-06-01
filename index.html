@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEMP - Servicios Ambientales</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" onclick="cargarPagina('inicio')" class="logo">DEMP</a>
+            <ul class="nav-links">
+                <li><a href="#" onclick="cargarPagina('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="cargarPagina('servicios')">Servicios</a></li>
+                <li><a href="#" onclick="cargarPagina('noticias')">Noticias</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" onclick="cargarPagina('cursos')" class="dropbtn">Cursos <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li class="nested-dropdown">
+                            <a href="#" onclick="cargarPagina('programacion')">Programación <i class="fa-solid fa-chevron-right" style="font-size: 12px; float: right; margin-top: 4px;"></i></a>
+                            <ul class="nested-dropdown-content">
+                                <li><a href="#" onclick="cargarPagina('python')">Python</a></li>
+                                <li><a href="#" onclick="cargarPagina('rstudio')">R-Studio</a></li>
+                                <li><a href="#" onclick="cargarPagina('matlab')">Matlab</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Opción 2: Buceo Marino (sin sub-menú por ahora) -->
+                        <li>
+                            <a href="#" onclick="cargarPagina('buceomarino')">Buceo Marino</a>
+                        </li>
+
+                    </ul>
+                   
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" onclick="cargarPagina('blog')" class="dropbtn">Blog <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-content">
+                        <li><a href="#" onclick="cargarPagina('blog-biologia-marina')">¿Qué es la biología marina?</a></li>
+                        <li><a href="#" onclick="cargarPagina('blog-monitoreo')">Monitoreo Ambiental</a></li>
+                    </ul>
+                </li>
+
+                <li><a href="#" onclick="cargarPagina('contacto')">Contacto</a></li>
+                <li><a href="#" onclick="cargarPagina('consultas')">Consultas</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="contenido-dinamico" class="main-content">
+        </main>
+
+    <footer class="footer-demp">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>DEMP- SERVICIOS AMBIENTALES</h3>
+                <p>Soluciones técnicas y consultoría especializada para el desarrollo industrial y la conservación ecológica.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/p/DEMP-Servicios-Ambientales-61558552258583/" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dempserviciosambientales/" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <a href="https://wa.me/51991481548" target="_blank"><i class="fab fa-whatsapp"></i> 991481548</a>
+                <a href="mailto:dempserviciosambientales@gmail.com"><i class="fas fa-envelope"></i> dempserviciosambientales@gmail.com</a>
+            </div>
+            <div class="footer-col">
+                <h3>Ubicación</h3>
+                <p><i class="fas fa-map-marker-alt"></i> San Miguel, Lima, Perú</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 DEMP- Servicios Ambientales. Todos los derechos reservados.
+        </div>
+    </footer>
+
+
+<!-- ==========================================
+         VISOR DE IMÁGENES EMERGENTE (GLOBAL)
+         ========================================== -->
+    <div id="modal-imagen" class="modal-overlay" onclick="cerrarModalImagen()">
+        <span class="modal-close-img">&times;</span>
+        <img class="modal-img-content" id="img-ampliada">
+    </div>
+
+
+<!--SEGIR AGREGANDO -->
+<!-- SCRIPTS MODULARES -->
+
+    <script src="js/modulos/form-servicios.js"></script>
+    <script src="js/modulos/modal-cursos.js"></script>
+    <script src="js/modulos/modal-imagen.js"></script> <!-- NUEVO SCRIPT -->
+    <script src="js/app.js"></script>
+</body>
+</html> 

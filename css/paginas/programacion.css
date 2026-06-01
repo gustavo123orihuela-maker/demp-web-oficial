@@ -1,0 +1,209 @@
+/* css/paginas/programacion.css */
+
+/* =========================================
+   VARIABLES GLOBALES
+   ========================================= */
+:root {
+    --primary: #0f172a;
+    --accent: #0284c7;
+    --bg-card: #ffffff;
+    --border: #e2e8f0;
+    --julia-color: #166534;
+    --julia-bg: #f0fdf4;
+    --julia-border: #bbf7d0;
+}
+
+/* =========================================
+   MAPA CONCEPTUAL
+   ========================================= */
+.map-container {
+    max-width: 1000px;
+    margin: 40px auto 80px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.map-title {
+    font-size: 2.2rem;
+    color: var(--primary);
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.node {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--accent);
+    border-radius: 8px;
+    padding: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.node-main {
+    border-top: 5px solid var(--primary);
+    background-color: #ffffff;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+    max-width: 800px;
+}
+
+.node-title {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.node p { 
+    margin: 0 0 15px 0; 
+    text-align: justify; 
+    color: #334155;
+    line-height: 1.6;
+}
+
+.node p:last-child { 
+    margin-bottom: 0; 
+}
+
+.node-julia {
+    background-color: var(--julia-bg);
+    border: 1px solid var(--julia-border);
+    border-top: 5px solid var(--julia-color);
+}
+.node-julia .node-title { 
+    color: var(--julia-color); 
+}
+
+.connector-vertical {
+    width: 4px;
+    height: 40px;
+    background-color: var(--accent);
+    border-radius: 2px;
+    margin: 5px 0;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 15px; }
+    .map-title { font-size: 1.8rem; }
+    .connector-vertical { height: 25px; }
+}
+
+/* =========================================
+   LÍNEA DE TIEMPO
+   ========================================= */
+.timeline-container {
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+.timeline-header {
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.timeline { 
+    position: relative; 
+    padding-left: 30px; 
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background-color: var(--accent);
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    background-color: var(--bg-card);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border-left: 4px solid var(--accent);
+}
+
+.timeline-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: -42px; 
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    border: 4px solid var(--accent);
+    box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.15);
+}
+
+.timeline-year {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: inline-block;
+    background-color: rgba(2, 132, 199, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin: 5px 0 10px 0;
+    font-weight: 700;
+}
+
+.timeline-content p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #334155;
+}
+
+@media (max-width: 600px) {
+    .timeline-header { font-size: 1.5rem; }
+    .timeline { padding-left: 20px; }
+    .timeline-item::before { left: -32px; }
+}

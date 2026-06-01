@@ -1,0 +1,61 @@
+<div class="contenedor-cursos">
+    <h2 class="titulo-cursos">Programación</h2>
+
+    <div class="cursos-grid">
+        <div class="curso-card">
+            <div class="curso-img-wrapper" style="background-color: #000;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" class="curso-img">
+            </div>
+            <h3 class="curso-titulo">Python</h3>
+            <p class="curso-desc">Este curso está diseñado para llevarte desde los conceptos básicos-intermedio de la programación orientada al análisis de datos utilizando Python, uno de los lenguajes más versátiles y demandados en la actualidad. A través de un enfoque totalmente práctico, dominarás la sintaxis, el manejo de estructuras de datos y el uso de librerías fundamentales. Al finalizar, tendrás la capacidad de automatizar tareas, analizar información y construir tus propios scripts y aplicaciones.</p>
+            <button class="btn-registro" onclick="abrirModalRegistro('Python')">Registro</button>
+        </div>
+
+        <div class="curso-card">
+            <div class="curso-img-wrapper" style="background-color: #0b1120;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/R_logo.svg" alt="R-Studio" class="curso-img">
+            </div>
+            <h3 class="curso-titulo">R-Studio</h3>
+            <p class="curso-desc">R es el estándar de oro en el mundo académico y profesional para el análisis estadístico, la minería de datos y la investigación reproducible. Este curso está diseñado para aprender las herramientas necesarias con el objetivo de trabajar con bases de datos crudas. A través de un enfoque práctico, aprenderás a importar, limpiar, modelar y visualizar grandes volúmenes de datos utilizando los ecosistemas más modernos del lenguaje.</p>
+            <button class="btn-registro" onclick="abrirModalRegistro('R-Studio')">Registro</button>
+        </div>
+
+        <div class="curso-card">
+            <div class="curso-img-wrapper" style="background-color: #000;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Matlab_Logo.png" alt="MatLab" class="curso-img">
+            </div>
+            <h3 class="curso-titulo">MatLab</h3>
+            <p class="curso-desc">Este curso está enfocado en dominar MATLAB como la herramienta definitiva para el cálculo técnico, el análisis de datos complejos y el modelado matemático. A diferencia de otros lenguajes de propósito general, MATLAB está optimizado de forma nativa para trabajar con operaciones matriciales y grandes volúmenes de datos numéricos. A través de ejercicios prácticos, aprenderás a procesar variables físicas, desarrollar algoritmos eficientes y crear simulaciones con un alto rigor científico.</p>
+            <button class="btn-registro" onclick="abrirModalRegistro('MatLab')">Registro</button>
+        </div>
+    </div>
+</div>
+
+<div id="modal-registro" class="modal-overlay">
+    <div class="modal-content">
+        <span class="modal-close" onclick="cerrarModalRegistro()">&times;</span>
+        <h3 id="modal-titulo-curso">Registro al Curso</h3>
+        <p style="color: #64748b; margin-bottom: 20px; font-size: 14px;">Ingresa tus datos para completar tu pre-inscripción.</p>
+        
+        <form id="formulario-registro-curso">
+            <input type="hidden" id="curso-seleccionado" name="curso">
+            
+            <div class="grupo-form">
+                <label for="reg-nombre">Nombre Completo</label>
+                <input type="text" id="reg-nombre" name="nombre" placeholder="Ej. Ana García" required>
+            </div>
+            
+            <div class="grupo-form">
+                <label for="reg-correo">Correo Electrónico</label>
+                <input type="email" id="reg-correo" name="correo" placeholder="correo@ejemplo.com" required>
+            </div>
+            
+            <div class="grupo-form">
+                <label for="reg-celular">Celular / WhatsApp</label>
+                <input type="tel" id="reg-celular" name="celular" placeholder="+51 999 999 999" required>
+            </div>
+            
+            <button type="submit" id="btn-enviar-registro" class="btn-submit">Confirmar Registro</button>
+        </form>
+    </div>
+</div>

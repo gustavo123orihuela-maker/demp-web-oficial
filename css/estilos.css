@@ -1,0 +1,19 @@
+/* css/estilos.css */
+
+/* 1. Base y configuraciones globales */
+@import url('base/global.css');
+
+/* 2. Componentes estáticos (Menú y Footer) */
+@import url('componentes/navegacion.css');
+@import url('componentes/footer.css');
+@import url('componentes/modal-imagen.css'); /* <--- AGREGA ESTA LÍNEA AQUÍ */
+
+/* 3. Estilos específicos de cada página */
+@import url('paginas/inicio.css');
+@import url('paginas/servicios.css');
+@import url('paginas/cursos.css'); /* <--- ESTA ES LA LÍNEA QUE FALTA */
+@import url('paginas/programacion.css');
+@import url('paginas/curso-detalle.css');
+@import url('paginas/noticias.css');
+@import url('paginas/blog.css');
+@import url('paginas/contacto.css')

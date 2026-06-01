@@ -1,0 +1,23 @@
+/* css/paginas/contacto.css */
+.contenedor-contacto { max-width: 1000px; margin: 50px auto; padding: 0 20px; }
+
+.seccion-titulo { color: #004066; font-family: 'Montserrat', sans-serif; margin-bottom: 30px; border-bottom: 2px dashed #cbd5e1; padding-bottom: 10px; }
+
+.equipo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px; }
+
+.perfil-card { text-align: center; }
+
+.foto-placeholder { 
+    width: 100%; height: 250px; background-color: #f1f5f9; 
+    border: 2px dashed #cbd5e1; display: flex; align-items: center; 
+    justify-content: center; font-size: 40px; color: #94a3b8; 
+    margin-bottom: 15px; border-radius: 8px; 
+}
+
+.perfil-card h3 { color: #004066; margin-bottom: 10px; }
+
+.perfil-card p { color: #475569; font-size: 14px; text-align: justify; line-height: 1.6; }
+
+.linea-divisor { border: none; border-top: 1px dashed #cbd5e1; margin: 40px 0; }
+
+.contenedor-papers { margin-top: 40px; }

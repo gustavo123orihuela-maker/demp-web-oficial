@@ -1,0 +1,46 @@
+/* css/paginas/curso-detalle.css */
+
+.detalle-header {
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.detalle-header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.detalle-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.detalle-contenido {
+    background-color: #ffffff;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 80px 20px;
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 40px;
+}
+
+.detalle-contenido i {
+    font-size: 3rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+/* Colores específicos para cada banner inyectados desde el HTML */
+.bg-python { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); }
+.bg-rstudio { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); }
+.bg-matlab { background: linear-gradient(135deg, #450a0a 0%, #991b1b 100%); }
