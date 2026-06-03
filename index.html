@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DEMP - Servicios Ambientales</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,16 +13,16 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" onclick="cargarPagina('inicio'); return false;" class="logo">DEMP</a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#" onclick="cargarPagina('inicio'); return false;">Inicio</a></li>
                 <li><a href="#" onclick="cargarPagina('servicios'); return false;">Servicios</a></li>
                 <li><a href="#" onclick="cargarPagina('noticias'); return false;">Noticias</a></li>
                 
                 <li class="dropdown">
-                    <a href="#" onclick="return false;" class="dropbtn">Cursos <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="#" class="dropbtn" onclick="cargarPagina('cursos'); return false;">Cursos <i class="fa-solid fa-chevron-down"></i></a>
                     <ul class="dropdown-content">
                         <li class="nested-dropdown">
-                            <a href="#" onclick="return false;">Programación <i class="fa-solid fa-chevron-right" style="font-size: 12px; float: right; margin-top: 4px;"></i></a>
+                            <a href="#" onclick="cargarPagina('programacion'); return false;">Programación <i class="fa-solid fa-chevron-right" style="font-size: 12px; float: right; margin-top: 4px;"></i></a>
                             <ul class="nested-dropdown-content">
                                 <li><a href="#" onclick="cargarPagina('python'); return false;">Python</a></li>
                                 <li><a href="#" onclick="cargarPagina('rstudio'); return false;">R-Studio</a></li>
@@ -34,7 +34,7 @@
                 </li>
 
                 <li class="dropdown">
-                    <a href="#" onclick="return false;" class="dropbtn">Blog <i class="fa-solid fa-chevron-down"></i></a>
+                    <a href="#" class="dropbtn" onclick="cargarPagina('blog'); return false;">Blog <i class="fa-solid fa-chevron-down"></i></a>
                     <ul class="dropdown-content">
                         <li><a href="#" onclick="cargarPagina('blog-biologia-marina'); return false;">¿Qué es la biología marina?</a></li>
                         <li><a href="#" onclick="cargarPagina('blog-monitoreo'); return false;">Monitoreo Ambiental</a></li>
@@ -47,8 +47,7 @@
         </div>
     </nav>
 
-    <main id="contenido-dinamico" class="main-content">
-        </main>
+    <main id="contenido-dinamico" class="main-content"></main>
 
     <footer class="footer-demp">
         <div class="footer-container">
@@ -60,16 +59,19 @@
                     <a href="https://www.instagram.com/dempserviciosambientales/" target="_blank"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
+            
             <div class="footer-col">
                 <h3>Contacto</h3>
                 <a href="https://wa.me/51991481548" target="_blank"><i class="fab fa-whatsapp"></i> 991481548</a>
                 <a href="mailto:dempserviciosambientales@gmail.com"><i class="fas fa-envelope"></i> dempserviciosambientales@gmail.com</a>
             </div>
+            
             <div class="footer-col">
                 <h3>Ubicación</h3>
                 <p><i class="fas fa-map-marker-alt"></i> San Miguel, Lima, Perú</p>
             </div>
         </div>
+        
         <div class="footer-bottom">
             &copy; 2026 DEMP- Servicios Ambientales. Todos los derechos reservados.
         </div>

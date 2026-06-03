@@ -2,6 +2,9 @@
 
 /* 1. Base y configuraciones globales */
 @import url('base/global.css');
+@import url('base/fondo.css');
+
+
 
 /* 2. Componentes estáticos (Menú y Footer) */
 @import url('componentes/navegacion.css');
@@ -16,4 +19,5 @@
 @import url('paginas/curso-detalle.css');
 @import url('paginas/noticias.css');
 @import url('paginas/blog.css');
-@import url('paginas/contacto.css')
+@import url('paginas/contacto.css');
+
