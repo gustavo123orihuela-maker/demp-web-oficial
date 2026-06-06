@@ -174,3 +174,122 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   ESTILOS UNIFICADOS PARA CURSOS DEMP
+   ========================================= */
+.hero-curso {
+    text-align: center;
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+}
+
+.hero-curso h1 {
+    font-size: 2.5rem;
+    color: #144d29; /* Verde institucional DEMP */
+    margin-bottom: 15px;
+}
+
+.hero-curso p {
+    font-size: 1.1rem;
+    color: #475569;
+    line-height: 1.8;
+}
+
+.seccion-blanca {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+}
+
+.seccion-titulo {
+    text-align: center;
+    color: #144d29;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+}
+
+.tarjeta-curso {
+    background-color: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #22c55e; /* Acento verde brillante */
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjeta-curso h3 {
+    color: #144d29;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.tarjeta-curso p {
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+/* Caja elegante para mostrar código en los módulos */
+.caja-codigo {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    padding: 15px;
+    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    margin-top: 15px;
+    overflow-x: auto;
+    border-left: 3px solid #22c55e;
+}
+
+.cmd { color: #22c55e; font-weight: bold; } /* Resalta los comandos */
+
+/* Lista para el temario */
+.lista-temario {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-temario li {
+    font-size: 0.9rem;
+    color: #475569;
+    padding: 6px 0 6px 15px;
+    position: relative;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.lista-temario li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: bold;
+}

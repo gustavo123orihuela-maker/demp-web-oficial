@@ -6,10 +6,11 @@
     padding: 0;
 }
 
+
+/* Archivo: css/base/global.css */
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f8fafc;
-    color: #333;
+    color: #333; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -20,4 +21,81 @@ body {
     flex: 1;
     padding: 60px 20px;
     width: 100%;
+}
+
+
+/* =========================================
+   ESTILOS PARA LAS PÁGINAS DE CURSOS
+   ========================================= */
+.hero-curso {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+}
+
+.hero-curso h1 {
+    font-size: 36px;
+    color: #144d29;
+    margin-bottom: 15px;
+}
+
+.hero-curso p.subtitulo {
+    font-size: 18px;
+    color: #475569;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.seccion-blanca {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra muy suave y corporativa */
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.modulo-card {
+    padding: 25px;
+    border-left: 4px solid #22c55e; /* Una línea verde decorativa a la izquierda */
+    background-color: #f8fafc; /* Fondo ligeramente gris para separar del blanco puro */
+    border-radius: 0 12px 12px 0;
+}
+
+.modulo-card h3 {
+    font-size: 18px;
+    color: #144d29;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.modulo-card p {
+    font-size: 15px;
+    margin: 0;
+}
+
+.btn-inscripcion {
+    display: inline-block;
+    background-color: #0b5c40;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 40px;
+    transition: background 0.3s;
+}
+
+.btn-inscripcion:hover {
+    background-color: #144d29;
+    color: #ffffff;
 }

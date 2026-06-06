@@ -1,18 +1,65 @@
-<div style="max-width: 1000px; margin: 0 auto;">
-    
-    <div class="detalle-header bg-rstudio">
-        <h1>R-Studio</h1>
-        <p>Minería de Datos e Investigación Estadística</p>
-    </div>
+<div class="hero-curso">
+    <h1>R-Studio: Análisis Estadístico y Visualización</h1>
+    <p>Convierte datos crudos de monitoreo en reportes científicos de alto impacto. R es el estándar de oro en la comunidad científica para estadística inferencial, gráficos de calidad de publicación y reproducibilidad.</p>
+</div>
 
-    <div class="detalle-contenido">
-        <i class="fa-solid fa-person-digging"></i>
-        <h2>Espacio reservado para el temario</h2>
-        <p>Aquí agregaremos los módulos, la duración, los requisitos y la metodología del curso de R-Studio más adelante.</p>
+<div class="seccion-blanca">
+    <h2 class="seccion-titulo">Ecosistema de R</h2>
+    <div class="grid-4">
+        <div class="tarjeta-curso">
+            <h3>Tidyverse</h3>
+            <p>Colección de paquetes (dplyr, tidyr) con sintaxis limpia para filtrar y transformar datos de campo.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>ggplot2</h3>
+            <p>Gramática de gráficos para crear perfiles verticales y series temporales capa a capa.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Estadística Base</h3>
+            <p>Pruebas de hipótesis (ANOVA), regresiones y análisis multivariado (PCA) para variables físico-químicas.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>R Markdown</h3>
+            <p>Automatización de informes técnicos mensuales en PDF y HTML con código integrado.</p>
+        </div>
     </div>
+</div>
 
-    <div style="text-align: center;">
-        <button class="btn-submit" style="max-width: 300px;" onclick="abrirModalRegistro('R-Studio')">Pre-inscribirme a este curso</button>
+<div class="seccion-blanca">
+    <h2 class="seccion-titulo">Módulos Prácticos</h2>
+    <div class="grid-4">
+        <div class="tarjeta-curso">
+            <h3>01. Flujo Tidyverse</h3>
+            <p>Limpieza de bases de datos ambientales.</p>
+            <div class="caja-codigo">
+                datos <span class="cmd">|></span> filter(OD > 0)<br>
+                <span class="cmd">|></span> group_by(mes)<br>
+                <span class="cmd">|></span> summarise(media = mean(T))
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>02. Pruebas Estadísticas</h3>
+            <p>Validación de diferencias entre estaciones.</p>
+            <div class="caja-codigo">
+                modelo &lt;- <span class="cmd">aov</span>(DBO ~ estacion)<br>
+                <span class="cmd">TukeyHSD</span>(modelo)
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>03. Figuras Científicas</h3>
+            <p>Series temporales con bandas de error.</p>
+            <div class="caja-codigo">
+                <span class="cmd">ggplot</span>(df, aes(x=fecha, y=O2)) +<br>
+                <span class="cmd">geom_line</span>() + <span class="cmd">theme_minimal</span>()
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>04. Reportes Automáticos</h3>
+            <p>Generación de informes directos a PDF.</p>
+            <div class="caja-codigo">
+                <span class="cmd">knitr::kable</span>(tabla_resumen)<br>
+                <span class="cmd">render</span>('informe.Rmd', 'pdf')
+            </div>
+        </div>
     </div>
-
 </div>

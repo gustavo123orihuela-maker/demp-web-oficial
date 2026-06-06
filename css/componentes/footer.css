@@ -3,10 +3,10 @@
    ========================================= */
 
 .footer-demp {
-    background-color: #ffffff;
-    color: #334155;
+    background-color: #0b5c40; /* Fondo verde oscuro elegante */
+    color: #ffffff; /* Letras blancas para contraste total */
     padding: 40px 20px 20px 20px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil transparente */
 }
 
 .footer-container {
@@ -27,16 +27,16 @@
 .footer-col h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
-    color: #0b5c40; 
+    color: #ffffff; /* CORREGIDO: Títulos en blanco para que resalten */
     margin-top: 0;
     margin-bottom: 20px;
-    border-bottom: 2px solid #22c55e;
+    border-bottom: 2px solid #22c55e; /* Línea inferior verde brillante */
     display: inline-block;
     padding-bottom: 8px;
 }
 
 .footer-col p, .footer-col a {
-    color: #4a5568; 
+    color: #f8fafc; /* CORREGIDO: Textos y enlaces en blanco puro/gris ultra claro */
     text-decoration: none;
     font-size: 15px;
     line-height: 1.8;
@@ -46,12 +46,12 @@
 }
 
 .footer-col a:hover {
-    color: #22c55e; 
+    color: #a7f3d0; /* CORREGIDO: Al pasar el mouse, brillan en verde clarito */
 }
 
 .footer-col i {
     width: 25px;
-    color: #0b5c40; 
+    color: #22c55e; /* CORREGIDO: Iconos de contacto (WhatsApp/Correo) en verde brillante */
     font-size: 18px;
     text-align: center;
     margin-right: 8px;
@@ -70,15 +70,15 @@
 }
 
 .social-icons i {
-    font-size: 32px; /* Tamaño grande como en la imagen */
-    color: #0b5c40; 
+    font-size: 32px; 
+    color: #ffffff; /* CORREGIDO: Iconos sociales en blanco */
     width: auto;
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .social-icons a:hover i {
-    color: #22c55e;
-    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    color: #22c55e; /* Efecto hover: se pintan de verde y crecen */
+    transform: scale(1.1); 
 }
 
 /* Créditos finales */
@@ -86,9 +86,9 @@
     text-align: center;
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* CORREGIDO: Línea divisoria blanca semi-transparente */
     font-size: 13px;
-    color: #64748b;
+    color: #cbd5e1; /* CORREGIDO: Texto de copyright más claro y legible */
 }
 
 /* Ajuste para celulares */

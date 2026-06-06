@@ -1,18 +1,64 @@
-<div style="max-width: 1000px; margin: 0 auto;">
-    
-    <div class="detalle-header bg-matlab">
-        <h1>MatLab</h1>
-        <p>Cálculo Técnico y Modelado Matemático Avanzado</p>
-    </div>
+<div class="hero-curso">
+    <h1>Procesamiento Numérico con MATLAB</h1>
+    <p>Potencia matemática para oceanografía física y ciencias de la tierra. Especializado en manejar cálculos matriciales complejos, procesamiento de señales ADCP/CTD y modelamiento dinámico de fluidos.</p>
+</div>
 
-    <div class="detalle-contenido">
-        <i class="fa-solid fa-person-digging"></i>
-        <h2>Espacio reservado para el temario</h2>
-        <p>Aquí agregaremos los módulos, la duración, los requisitos y la metodología del curso de MatLab más adelante.</p>
+<div class="seccion-blanca">
+    <h2 class="seccion-titulo">Áreas de Aplicación</h2>
+    <div class="grid-4">
+        <div class="tarjeta-curso">
+            <h3>Álgebra Matricial</h3>
+            <p>Operaciones vectorizadas sin bucles para procesar matrices completas de campañas oceanográficas (CTD).</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Procesamiento de Señales</h3>
+            <p>Aplicación de FFT y filtros digitales (Butterworth) para separar señales de mareas en correntómetros.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Modelamiento Numérico</h3>
+            <p>Resolución de ecuaciones diferenciales (EDO) para simular difusión de calor y capa de mezcla.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Gráficos Científicos</h3>
+            <p>Visualización de diagramas TS, batimetría 3D y proyecciones espaciales con la toolbox m_map.</p>
+        </div>
     </div>
+</div>
 
-    <div style="text-align: center;">
-        <button class="btn-submit" style="max-width: 300px;" onclick="abrirModalRegistro('MatLab')">Pre-inscribirme a este curso</button>
+<div class="seccion-blanca">
+    <h2 class="seccion-titulo">Módulos Prácticos</h2>
+    <div class="grid-4">
+        <div class="tarjeta-curso">
+            <h3>01. Datos Instrumentales</h3>
+            <p>Indexación y limpieza de mallas de datos.</p>
+            <div class="caja-codigo">
+                T(T &lt; -2 | T &gt; 35) = <span class="cmd">NaN</span>;<br>
+                T_media = <span class="cmd">mean</span>(T, 2, 'omitnan');
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>02. Análisis Espectral</h3>
+            <p>Filtrado paso-bajo de series temporales.</p>
+            <div class="caja-codigo">
+                [b, a] = <span class="cmd">butter</span>(4, fc, 'low');<br>
+                U_res = <span class="cmd">filtfilt</span>(b, a, U_adcp);
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>03. Métodos Numéricos</h3>
+            <p>Resolución de sistemas de advección-difusión.</p>
+            <div class="caja-codigo">
+                d2T = <span class="cmd">diff</span>(T, 2) / dz^2;<br>
+                [t, y] = <span class="cmd">ode45</span>(@func, tspan, y0);
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>04. Visualización Oceanográfica</h3>
+            <p>Secciones transversales e isolíneas.</p>
+            <div class="caja-codigo">
+                <span class="cmd">contourf</span>(lon, z, T, 20);<br>
+                <span class="cmd">set</span>(gca, 'YDir', 'reverse');
+            </div>
+        </div>
     </div>
-
 </div>

@@ -1,18 +1,64 @@
-<div style="max-width: 1000px; margin: 0 auto;">
-    
-    <div class="detalle-header bg-python">
-        <h1>Python</h1>
-        <p>Análisis de Datos y Automatización Ambiental</p>
-    </div>
+<div class="hero-curso">
+    <h1>Python para Ciencias Ambientales y Oceanografía</h1>
+    <p>Domina el lenguaje líder en análisis de datos y modelamiento predictivo. Automatiza el procesamiento de grandes volúmenes de datos ambientales, desde series de tiempo de oxígeno disuelto hasta variables espaciales.</p>
+</div>
 
-    <div class="detalle-contenido">
-        <i class="fa-solid fa-person-digging"></i>
-        <h2>Espacio reservado para el temario</h2>
-        <p>Aquí agregaremos los módulos, la duración, los requisitos y la metodología del curso de Python más adelante.</p>
+<div class="seccion-blanca">
+    <h2 class="seccion-titulo">Herramientas Principales</h2>
+    <div class="grid-4">
+        <div class="tarjeta-curso">
+            <h3>Pandas</h3>
+            <p>Limpieza y estructuración de series de tiempo de estaciones de monitoreo y datos tabulares.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Xarray</h3>
+            <p>Procesamiento de archivos NetCDF multidimensionales (modelos oceánicos, clorofila, TSM).</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Cartopy</h3>
+            <p>Creación de mapas científicos y representación de variables georreferenciadas.</p>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>Scikit-learn</h3>
+            <p>Machine Learning aplicado para predicción de variables ecológicas y biogeoquímicas.</p>
+        </div>
     </div>
+</div>
 
-    <div style="text-align: center;">
-        <button class="btn-submit" style="max-width: 300px;" onclick="abrirModalRegistro('Python')">Pre-inscribirme a este curso</button>
+<div class="seccion-blanca">
+    <h2 class="seccion-titulo">Módulos Prácticos</h2>
+    <div class="grid-4">
+        <div class="tarjeta-curso">
+            <h3>01. Manipulación de Datos</h3>
+            <p>Importación y limpieza de datos de campo.</p>
+            <div class="caja-codigo">
+                <span class="cmd">pd.read_csv</span>('datos.csv')<br>
+                <span class="cmd">df.groupby</span>('estacion').mean()
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>02. Datos Espaciales</h3>
+            <p>Extracción de perfiles y cortes de modelos.</p>
+            <div class="caja-codigo">
+                <span class="cmd">xr.open_dataset</span>('modelo.nc')<br>
+                <span class="cmd">ds.sel</span>(lat=-12, lon=-77)
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>03. Mapas con Cartopy</h3>
+            <p>Visualización de anomalías ambientales.</p>
+            <div class="caja-codigo">
+                <span class="cmd">ax.contourf</span>(lon, lat, TSM)<br>
+                <span class="cmd">ax.add_feature</span>(COASTLINE)
+            </div>
+        </div>
+        <div class="tarjeta-curso">
+            <h3>04. Modelamiento Predictivo</h3>
+            <p>Algoritmos de regresión para variables físicas.</p>
+            <div class="caja-codigo">
+                <span class="cmd">RandomForestRegressor</span>()<br>
+                <span class="cmd">modelo.fit</span>(X_train, Y_train)
+            </div>
+        </div>
     </div>
-
 </div>

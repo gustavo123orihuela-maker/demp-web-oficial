@@ -42,3 +42,41 @@ function cargarPagina(pagina) {
 document.addEventListener("DOMContentLoaded", () => {
     cargarPagina('inicio');
 });
+
+
+
+
+// Función para el carrusel de inicio (Retorno instantáneo)
+function moverCarrusel(direccion) {
+    const track = document.getElementById('track-imagenes');
+    if (!track) return;
+
+    const anchoSlide = track.clientWidth;
+    const scrollActual = track.scrollLeft;
+    const scrollMaximo = track.scrollWidth - track.clientWidth;
+
+    // Si presionamos flecha derecha (+1) o es automático
+    if (direccion === 1) {
+        if (scrollActual >= scrollMaximo - 10) { 
+            // Vuelve a la posición 0 de forma INSTANTÁNEA (behavior: 'auto')
+            track.scrollTo({ left: 0, behavior: 'auto' });
+        } else {
+            // Desplazamiento normal suave entre fotos
+            track.scrollBy({ left: anchoSlide, behavior: 'smooth' });
+        }
+    } 
+    // Si presionamos flecha izquierda (-1)
+    else {
+        if (scrollActual <= 10) {
+            // Va a la última posición de forma INSTANTÁNEA
+            track.scrollTo({ left: scrollMaximo, behavior: 'auto' });
+        } else {
+            track.scrollBy({ left: -anchoSlide, behavior: 'smooth' });
+        }
+    }
+}
+
+// Reproducción automática cada 5 segundos
+setInterval(() => moverCarrusel(1), 5000);
+
+
