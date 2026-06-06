@@ -29,33 +29,111 @@
             <button class="btn-registro" onclick="abrirModalRegistro('MatLab')">Registro</button>
         </div>
     </div>
+
+    <h2 class="titulo-cursos" style="margin-top: 50px;">Buceo</h2>
+
+    <div class="cursos-grid">
+        <div class="curso-card">
+            <div class="curso-img-wrapper" style="background-color: #0369a1; padding: 0;">
+                <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Buceo Marino" class="curso-img" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+            <h3 class="curso-titulo">Buceo Marino</h3>
+            <p class="curso-desc">Aprende las técnicas, protocolos de seguridad y fundamentos esenciales para la inmersión y exploración submarina. Este curso está diseñado para brindarte los conocimientos teóricos y prácticos necesarios para disfrutar del buceo de forma segura, permitiéndote descubrir la riqueza de nuestros ecosistemas marinos.</p>
+            <button class="btn-registro" onclick="abrirModalRegistro('Buceo Marino')">Registro</button>
+        </div>
+    </div>
 </div>
 
 <div id="modal-registro" class="modal-overlay">
-    <div class="modal-content">
+    <div class="modal-content" style="max-height: 90vh; overflow-y: auto;">
         <span class="modal-close" onclick="cerrarModalRegistro()">&times;</span>
         <h3 id="modal-titulo-curso">Registro al Curso</h3>
-        <p style="color: #64748b; margin-bottom: 20px; font-size: 14px;">Ingresa tus datos para completar tu pre-inscripción.</p>
+        <p style="color: #64748b; margin-bottom: 20px; font-size: 14px;">Ingresa tus datos y adjunta tu comprobante para completar tu pre-inscripción.</p>
         
         <form id="formulario-registro-curso">
             <input type="hidden" id="curso-seleccionado" name="curso">
             
             <div class="grupo-form">
-                <label for="reg-nombre">Nombre Completo</label>
-                <input type="text" id="reg-nombre" name="nombre" placeholder="Ej. Ana García" required>
+                <label for="reg-nombre">Nombres y Apellidos</label>
+                <input type="text" id="reg-nombre" name="nombre" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="reg-dni">DNI</label>
+                <input type="text" id="reg-dni" name="dni" required>
             </div>
             
             <div class="grupo-form">
                 <label for="reg-correo">Correo Electrónico</label>
-                <input type="email" id="reg-correo" name="correo" placeholder="correo@ejemplo.com" required>
+                <input type="email" id="reg-correo" name="correo" required>
             </div>
             
             <div class="grupo-form">
-                <label for="reg-celular">Celular / WhatsApp</label>
-                <input type="tel" id="reg-celular" name="celular" placeholder="+51 999 999 999" required>
+                <label for="reg-celular">Número de celular / WhatsApp</label>
+                <input type="tel" id="reg-celular" name="celular" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="reg-situacion">Situación Académica o Laboral</label>
+                <select id="reg-situacion" name="situacion" required>
+                    <option value="">Seleccione una opción...</option>
+                    <option value="Estudiante">Estudiante</option>
+                    <option value="Profesional">Profesional</option>
+                </select>
+            </div>
+
+            <div class="grupo-form">
+                <label for="reg-carrera">Profesión o Carrera en curso</label>
+                <input type="text" id="reg-carrera" name="carrera" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="reg-institucion">Universidad, Institución o Empresa</label>
+                <input type="text" id="reg-institucion" name="institucion" required>
+            </div>
+
+            <div class="grupo-form">
+                <label for="reg-enterado">¿Cómo te enteraste de nuestro curso?</label>
+                <select id="reg-enterado" name="enterado" required onchange="verificarOtros()">
+                    <option value="">Seleccione una opción...</option>
+                    <option value="Amigos">Amigos</option>
+                    <option value="Redes Sociales">Redes Sociales</option>
+                    <option value="Colegio de Biólogos">Colegio de Biólogos</option>
+                    <option value="Otros">Otros</option>
+                </select>
+                <input type="text" id="reg-enterado-otro" name="enterado_otro" placeholder="Especificar..." style="display: none; margin-top: 10px;">
+            </div>
+
+            <div class="grupo-form ancho-completo">
+                <label for="reg-sugerencia">¿Algún curso que te gustaría que dictemos? (Opcional)</label>
+                <input type="text" id="reg-sugerencia" name="curso_sugerido">
+            </div>
+
+            <div class="datos-pago ancho-completo" style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-top: 10px; border: 1px solid #e2e8f0; font-size: 14px; line-height: 1.6; color: #334155;">
+                <h4 style="margin-top: 0; color: #0b5c40; font-family: 'Montserrat', sans-serif;">Información de Pago</h4>
+                <p style="margin-bottom: 15px;">Para completar tu registro, realiza el pago y adjunta el voucher. Titular: <strong>Dante Espinoza</strong></p>
+                
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <div>
+                        <strong>BCP:</strong> Soles: 19239681262081<br>CCI: 00219213968126208134<br><br>
+                        <strong>SCOTIABANK:</strong> Soles: 4280169097<br>CCI: 00942820428016909745
+                    </div>
+                    <div>
+                        <strong>INTERBANK:</strong> Soles: 8213210644759<br>CCI: 00382101321064475963<br><br>
+                        <strong>YAPE / PLIN:</strong> 978853674
+                    </div>
+                </div>
+                <div style="margin-top: 15px; border-top: 1px dashed #cbd5e1; padding-top: 10px;">
+                    <em style="color: #64748b; font-size: 13px;">* Si desea pagar con tarjeta de crédito escribir al WhatsApp: <a href="https://wa.me/51991481548" target="_blank" style="color: #22c55e;">991481548</a></em>
+                </div>
+            </div>
+
+            <div class="grupo-form ancho-completo">
+                <label for="archivo-voucher"><strong>Adjuntar Voucher de pago</strong> (Obligatorio)</label>
+                <input type="file" id="archivo-voucher" accept="image/*,application/pdf" required style="border: 1px dashed #0b5c40; padding: 15px; border-radius: 5px; width: 100%; box-sizing: border-box; background-color: #f0fdf4;">
             </div>
             
-            <button type="submit" id="btn-enviar-registro" class="btn-submit">Confirmar Registro</button>
+            <button type="submit" id="btn-enviar-registro" class="btn-submit ancho-completo" style="margin-top: 10px;">Confirmar Registro</button>
         </form>
     </div>
 </div>

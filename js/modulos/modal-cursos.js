@@ -19,7 +19,6 @@ function cerrarModalRegistro() {
     }
 }
 
-// Cerrar modal al hacer clic fuera
 document.addEventListener('click', function(event) {
     const modal = document.getElementById('modal-registro');
     if (event.target === modal) {
@@ -27,35 +26,76 @@ document.addEventListener('click', function(event) {
     }
 });
 
+function verificarOtros() {
+    const select = document.getElementById('reg-enterado');
+    const inputOtro = document.getElementById('reg-enterado-otro');
+    if(select.value === 'Otros') {
+        inputOtro.style.display = 'block';
+        inputOtro.required = true;
+    } else {
+        inputOtro.style.display = 'none';
+        inputOtro.required = false;
+        inputOtro.value = '';
+    }
+}
+
 function inicializarFormularioCursos() {
     const formCursos = document.getElementById('formulario-registro-curso');
-    const btnEnviar = document.getElementById('btn-enviar-registro');
-    
     if (!formCursos) return;
 
-    // Tu enlace de Google Apps Script para cursos
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzVK-Yga86eG0pcSMVq9I8IvlToKZBR4cF9d0S2M9qsYgC0oIzEwGXPr8uK1eT9ICao/exec';
-
-    formCursos.addEventListener('submit', e => {
+    formCursos.onsubmit = function(e) {
         e.preventDefault(); 
         
-        const textoOriginal = btnEnviar.textContent;
-        btnEnviar.textContent = 'Registrando...';
+        const btnEnviar = document.getElementById('btn-enviar-registro');
+        // REEMPLAZA ESTA URL CON LA NUEVA VERSIÓN DE TU SCRIPT SI CAMBIA
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxiw0_5Qhv5MpkqWU41OWdxfrOUysoi2JtRv7mCjKcbVoOiO9Fr78PqgD4sngRkz9Q_/exec';
+        
+        btnEnviar.textContent = 'Enviando registro y voucher...';
         btnEnviar.disabled = true;
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(formCursos)})
-            .then(response => {
-                alert('¡Registro completado! Nos pondremos en contacto contigo.');
-                formCursos.reset(); 
-                cerrarModalRegistro();
-                btnEnviar.textContent = textoOriginal;
-                btnEnviar.disabled = false;
-            })
-            .catch(error => {
-                console.error('Error:', error.message);
-                alert('Hubo un error. Por favor intenta de nuevo.');
-                btnEnviar.textContent = textoOriginal;
-                btnEnviar.disabled = false;
-            });
-    });
+        const fileInput = document.getElementById('archivo-voucher');
+        const file = fileInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const base64Data = event.target.result.split(',')[1];
+                const mimeType = file.type;
+                const fileName = file.name;
+
+                const formData = new FormData(formCursos);
+                formData.append('fileData', base64Data);
+                formData.append('mimeType', mimeType);
+                formData.append('fileName', fileName);
+
+                fetch(scriptURL, { method: 'POST', body: formData })
+                    .then(response => response.text())
+                    .then(result => {
+                        // AQUÍ ESTÁ LA MAGIA: Leemos la respuesta real de Google
+                        if (result === "Éxito") {
+                            alert('¡Registro y pago recibidos! Nos pondremos en contacto contigo pronto.');
+                            formCursos.reset(); 
+                            document.getElementById('reg-enterado-otro').style.display = 'none';
+                            cerrarModalRegistro();
+                        } else {
+                            // Si Google devuelve un error, lo forzamos a salir en pantalla
+                            alert('ATENCIÓN - El servidor de Google dice:\n\n' + result);
+                        }
+                        btnEnviar.textContent = 'Confirmar Registro';
+                        btnEnviar.disabled = false;
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Hubo un error de conexión al enviar. Revisa la consola.');
+                        btnEnviar.textContent = 'Confirmar Registro';
+                        btnEnviar.disabled = false;
+                    });
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert("Por favor, adjunta tu voucher de pago.");
+            btnEnviar.textContent = 'Confirmar Registro';
+            btnEnviar.disabled = false;
+        }
+    };
 }
