@@ -117,23 +117,33 @@
 }
 
 /* =========================================
-   RESPONSIVIDAD BASE (CELULARES)
+   RESPONSIVIDAD BASE (CELULARES) - CORRECCIÓN FINAL
    ========================================= */
 @media (max-width: 768px) {
     .nav-links { 
         display: none; 
     }
-    /* Nota: Todo el diseño final del menú móvil ya se está inyectando 
-       correctamente desde tu archivo estilos.css principal. */
-}
 
-@media (max-width: 768px) {
     .nav-container {
         display: flex !important;
-        flex-direction: row !important;      /* Asegura que estén en fila */
-        justify-content: space-between !important; /* Fuerza la separación */
-        align-items: center !important;      /* Alinea verticalmente */
-        padding: 10px 15px !important;       /* Reduce padding para ganar espacio */
+        flex-direction: row !important;
+        justify-content: space-between !important; /* Fuerza separación extrema */
+        align-items: center !important;
+        padding: 10px 15px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Aseguramos que el logo no se centre */
+    .logo-link {
+        flex: 1 !important; /* El logo toma el espacio de la izquierda */
+        justify-content: flex-start !important; /* Fuerza el logo a la izquierda */
+    }
+
+    /* El botón de hamburguesa se asegura a la derecha */
+    .menu-toggle {
+        order: 2; /* Siempre a la derecha */
+        margin-left: auto !important; /* Empuja el botón al final */
     }
 }
 
