@@ -42,7 +42,19 @@ img {
 /* El "Switch" mágico: Si la pantalla es de 768px o menos, aplica esto: */
 @media (max-width: 768px) {
     
-    /* 1. BARRA DE NAVEGACIÓN (Hamburguesa) */
+    /* ========================================= */
+    /* CORRECCIÓN DE CAPAS (Z-INDEX NUCLEAR)     */
+    /* ========================================= */
+    
+    /* 1. Darle el poder absoluto a toda la barra superior */
+    .navbar {
+        position: relative !important;
+        z-index: 999999 !important; /* Un número gigante para ganarle al carrusel */
+        background-color: #ffffff !important; /* Asegura que el fondo sea blanco */
+        overflow: visible !important; /* Evita que se corte el menú invisblemente */
+    }
+
+    /* 2. BARRA DE NAVEGACIÓN (Contenedor) */
     .nav-container {
         display: flex !important;
         flex-direction: row !important; /* Fuerza a que estén en la misma línea */
@@ -77,25 +89,31 @@ img {
         outline: none !important;
     }
     
-    /* Ocultar el menú de texto por defecto y prepararlo para desplegar */
-    .nav-links {
-        display: none !important; /* Oculto inicialmente */
-        position: absolute;
-        top: 100%; /* Aparece justo debajo del header */
-        left: 0;
-        width: 100%;
-        background-color: #ffffff;
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 0;
-        gap: 15px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        z-index: 10000;
+    /* 3. Diseño de la lista desplegable (Forzando la visibilidad) */
+    ul#nav-links {
+        display: none !important; /* Oculto por defecto */
+        position: absolute !important;
+        top: 100% !important; /* Baja justo debajo de la barra */
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #ffffff !important;
+        padding: 20px 0 !important;
+        box-shadow: 0px 15px 20px rgba(0,0,0,0.2) !important;
+        z-index: 999999 !important; /* Igual de alto que la barra principal */
     }
 
-    /* Esta clase "active" es la que hará aparecer el menú con JavaScript */
-    .nav-links.active {
-        display: flex !important; 
+    /* Esta es la clase que el JavaScript activa al tocar el botón */
+    ul#nav-links.active {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 15px !important;
+    }
+
+    /* Asegurar que los botones del menú se vean bien separados */
+    ul#nav-links li {
+        width: 100%;
+        margin-bottom: 5px;
     }
 
     /* Evita que los submenús floten en el celular y los integra a la lista */
@@ -108,13 +126,13 @@ img {
         background-color: #f8fafc;
     }
 
-    /* 2. TARJETAS Y CONTENIDO (Cursos, Servicios, etc.) */
+    /* 4. TARJETAS Y CONTENIDO (Cursos, Servicios, etc.) */
     .grid-4, .grid-3, .grid-2 {
         grid-template-columns: 1fr; /* Todo se vuelve 1 sola columna vertical */
         gap: 20px;
     }
 
-    /* 3. ESPACIADOS Y TEXTOS */
+    /* 5. ESPACIADOS Y TEXTOS */
     .hero-curso, .seccion-blanca {
         padding: 25px 15px; /* Reduce el relleno interno */
         margin-left: 15px;  /* Reduce los márgenes externos */
@@ -130,7 +148,7 @@ img {
         font-size: 1.5rem !important;
     }
 
-    /* 4. PIE DE PÁGINA (Footer) */
+    /* 6. PIE DE PÁGINA (Footer) */
     .footer-container {
         flex-direction: column; /* Apila las 3 columnas del footer */
         text-align: center;
