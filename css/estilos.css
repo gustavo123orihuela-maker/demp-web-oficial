@@ -120,15 +120,18 @@ img {
     /* SOLUCIÓN AL MENÚ DESPLEGABLE              */
     /* ========================================= */
     
-    /* En celulares, es mejor mostrar los submenús ya desplegados como una lista continua */
-    .dropdown-content, .nested-dropdown-content {
+    /* Mostrar TODOS los niveles de submenús en móviles de forma continua */
+    .dropdown-content, 
+    .nested-dropdown-content {
         display: flex !important;
         flex-direction: column !important;
-        padding-left: 15px !important; /* Sangría para diferenciar que es un submenú */
+        padding-left: 20px !important; /* Sangría visible para los submenús */
         background-color: transparent !important;
         border: none !important;
-        position: relative !important; /* Mantiene el submenú integrado en la lista */
+        position: relative !important;
         box-shadow: none !important;
+        gap: 15px !important; /* Espaciado uniforme entre opciones */
+        margin-top: 10px !important; /* Separación del título principal */
     }
     
     /* Le quitamos la flechita en celulares porque ya estará abierto */
@@ -137,31 +140,35 @@ img {
     }
 
     /* ========================================= */
-    /* SOLUCIÓN AL CONTENIDO APRETADO            */
+    /* SOLUCIÓN AL CONTENIDO APRETADO UNIVERSAL  */
     /* ========================================= */
     
-    /* Forzar a todos los contenedores a apilarse verticalmente (1 sola columna) */
-    .grid-container, .contenedor-cursos, .cursos-list, .blog-grid, .servicios-grid, [class*="grid"] {
+    /* Obliga a CUALQUIER cuadrícula o fila a convertirse en una sola columna */
+    .grid-container, .contenedor-cursos, .cursos-list, .blog-grid, .servicios-grid,
+    [class*="grid"], [class*="contenedor"], [class*="container"] {
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
-        gap: 25px !important;
+        gap: 30px !important; /* Mayor separación entre secciones */
     }
 
-    /* Forzar a las tarjetas individuales a usar todo el ancho de la pantalla */
-    .tarjeta, .tarjeta-curso, .curso-item, .blog-post, .columna, .card {
+    /* Obliga a las tarjetas/artículos del blog a ocupar el ancho total */
+    .tarjeta, .tarjeta-curso, .curso-item, .blog-post, .columna, .card,
+    .articulo-blog, .servicio-item {
         width: 100% !important;
-        max-width: 100% !important; /* Evita que se queden delgaditas */
+        max-width: 100% !important; 
         min-width: 100% !important;
-        margin: 0 0 20px 0 !important;
+        margin: 0 0 25px 0 !important;
         box-sizing: border-box !important;
+        display: block !important; /* Evita que los elementos internos colapsen */
     }
     
-    /* Asegurar que las imágenes de los cursos/blogs también ocupen bien el espacio */
-    .tarjeta img, .curso-item img, .blog-post img {
+    /* Asegurar que las imágenes principales nunca se deformen */
+    .tarjeta img, .curso-item img, .blog-post img, .articulo-blog img {
         width: 100% !important;
         height: auto !important;
         object-fit: cover !important;
+        border-radius: 8px !important; /* Un toque redondeado para mejor estética */
     }
 
     /* ========================================= */
