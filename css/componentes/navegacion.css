@@ -4,7 +4,6 @@
     background-color: #ffffff; /* Blanco puro */
     /* Esta es la sombra elegante que separa el menú del resto de la página */
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); 
-    /* Asegúrate de que las letras del menú sean oscuras para que resalten */
 }
 
 .nav-container {
@@ -30,12 +29,11 @@
     width: auto;
     object-fit: contain;
 }
+
 .logo-link {
     display: flex;
     align-items: center;
 }
-
-
 
 .nav-links {
     list-style: none;
@@ -59,67 +57,85 @@
 }
 
 /* =========================================
-   MENÚS DESPLEGABLES (Dropdowns)
+   MENÚS DESPLEGABLES (SOLO COMPUTADORAS)
    ========================================= */
-.dropdown { position: relative; }
+/* Al encerrar esto en min-width: 769px, evitamos que estas reglas empujen el texto en el celular */
+@media (min-width: 769px) {
+    .dropdown { position: relative; }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 220px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    list-style: none;
-    top: 100%;
-    left: 0;
-    border-radius: 8px;
-    overflow: visible; /* Importante para el sub-menú */
-    padding: 10px 0;
-    border: 1px solid #f1f5f9;
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 220px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        list-style: none;
+        top: 100%;
+        left: 0;
+        border-radius: 8px;
+        overflow: visible; 
+        padding: 10px 0;
+        border: 1px solid #f1f5f9;
+    }
+
+    .dropdown-content li {
+        padding: 0;
+    }
+
+    .dropdown-content a { 
+        padding: 12px 20px; 
+        font-weight: 500; 
+        color: #334155;
+        transition: background-color 0.2s, color 0.2s;
+    }
+
+    .dropdown-content a:hover { 
+        background-color: #f8fafc; 
+        color: #0b5c40;
+    }
+
+    .dropdown:hover .dropdown-content { display: block; }
+
+    /* SUB-MENÚS DESPLEGABLES (Anidados) */
+    .nested-dropdown { position: relative; }
+
+    .nested-dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #ffffff;
+        min-width: 200px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        list-style: none;
+        top: -10px; 
+        left: 100%; /* <-- EL CULPABLE: Ahora solo afectará a la computadora */
+        border-radius: 8px;
+        padding: 10px 0;
+        border: 1px solid #f1f5f9;
+    }
+
+    .nested-dropdown:hover .nested-dropdown-content { display: block; }
 }
-
-.dropdown-content li {
-    padding: 0;
-}
-
-.dropdown-content a { 
-    padding: 12px 20px; 
-    font-weight: 500; 
-    color: #334155;
-    transition: background-color 0.2s, color 0.2s;
-}
-
-.dropdown-content a:hover { 
-    background-color: #f8fafc; 
-    color: #0b5c40;
-}
-
-/* Mostrar el menú al pasar el mouse */
-.dropdown:hover .dropdown-content { display: block; }
 
 /* =========================================
-   SUB-MENÚS DESPLEGABLES (Anidados)
+   RESPONSIVIDAD BASE (CELULARES)
    ========================================= */
-.nested-dropdown { position: relative; }
-
-.nested-dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #ffffff;
-    min-width: 200px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    list-style: none;
-    top: -10px; /* Alineado un poco más arriba para compensar el padding */
-    left: 100%; /* Se despliega hacia la derecha */
-    border-radius: 8px;
-    padding: 10px 0;
-    border: 1px solid #f1f5f9;
+@media (max-width: 768px) {
+    .nav-links { 
+        display: none; 
+    }
+    /* Nota: Todo el diseño final del menú móvil ya se está inyectando 
+       correctamente desde tu archivo estilos.css principal. */
 }
 
-/* Mostrar el sub-menú al pasar el mouse sobre la opción "Programación" */
-.nested-dropdown:hover .nested-dropdown-content { display: block; }
-
-/* RESPONSIVIDAD DEL MENÚ */
-@media (max-width: 850px) {
-    .nav-links { display: none; }
+@media (max-width: 768px) {
+    .nav-container {
+        display: flex !important;
+        flex-direction: row !important;      /* Asegura que estén en fila */
+        justify-content: space-between !important; /* Fuerza la separación */
+        align-items: center !important;      /* Alinea verticalmente */
+        padding: 10px 15px !important;       /* Reduce padding para ganar espacio */
+    }
 }
+
+
+

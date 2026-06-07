@@ -12,19 +12,14 @@
 
     <nav class="navbar">
         <div class="nav-container">
-            <!-- LOGO -->
             <a href="#" onclick="cargarPagina('inicio'); return false;" class="logo logo-link">
                 <img src="Logos/D_demp.jpg" alt="Logo DEMP" class="logo-img">
             </a>
 
-            <!-- ========================================== -->
-            <!-- BOTÓN HAMBURGUESA PARA MÓVILES -->
-            <!-- ========================================== -->
             <button class="menu-toggle" id="mobile-menu">
                 <i class="fas fa-bars"></i>
             </button>
 
-            <!-- ENLACES DEL MENÚ -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="#" onclick="cargarPagina('inicio'); return false;">Inicio</a></li>
                 <li><a href="#" onclick="cargarPagina('servicios'); return false;">Servicios</a></li>
@@ -61,7 +56,6 @@
 
     <main id="contenido-dinamico" class="main-content"></main>
 
-    <!-- MUESTRA VISUAL DE CONTADOR DE VISITAS -->
     <div class="seccion-blanca" style="max-width: 350px; margin: 40px auto; text-align: center; padding: 30px 20px;">
         <i class="fas fa-users" style="color: #22c55e; font-size: 2rem; margin-bottom: 15px;"></i>
         <h3 style="color: #144d29; font-size: 1.2rem; margin-top: 0; margin-bottom: 15px;">Visitas de la página</h3>
@@ -70,8 +64,6 @@
         </div>
         <p style="color: #64748b; font-size: 0.85rem; margin-top: 15px; margin-bottom: 0;">Visitas totales al sitio web</p>
     </div>
-    <!-- FIN DEL CONTADOR -->
-
     <footer class="footer-demp">
         <div class="footer-container">
             <div class="footer-col">
@@ -105,26 +97,20 @@
         <img class="modal-img-content" id="img-ampliada">
     </div>
 
-    <!-- Scripts externos -->
     <script src="js/modulos/form-servicios.js"></script>
     <script src="js/modulos/modal-cursos.js"></script>
     <script src="js/modulos/modal-imagen.js"></script>
     <script src="js/app.js"></script>
 
-    <!-- ========================================== -->
-    <!-- SCRIPT PARA EL MENÚ HAMBURGUESA -->
-    <!-- ========================================== -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // 1. Menú Hamburguesa Principal
             const mobileMenuBtn = document.getElementById('mobile-menu');
             const navLinks = document.getElementById('nav-links');
 
             if(mobileMenuBtn && navLinks) {
                 mobileMenuBtn.addEventListener('click', () => {
-                    // Alternar la clase activa para mostrar/ocultar
                     navLinks.classList.toggle('active');
-                    
-                    // Cambiar el ícono (hamburguesa <-> X)
                     const icon = mobileMenuBtn.querySelector('i');
                     if (navLinks.classList.contains('active')) {
                         icon.classList.remove('fa-bars');
@@ -134,19 +120,62 @@
                         icon.classList.add('fa-bars');
                     }
                 });
-
-                // Cerrar el menú al tocar un enlace
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        const icon = mobileMenuBtn.querySelector('i');
-                        if(icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    });
-                });
             }
+
+            // 2. Lógica para abrir Submenús con las flechas
+            const flechas = document.querySelectorAll('.nav-links i.fa-chevron-down, .nav-links i.fa-chevron-right');
+            
+            flechas.forEach(flecha => {
+                flecha.addEventListener('click', (e) => {
+                    // Evitar que el clic en la flecha salte a la página del enlace
+                    e.preventDefault(); 
+                    e.stopPropagation(); 
+                    
+                    // Buscar la lista (ul) que está dentro del mismo elemento (li)
+                    const submenu = flecha.closest('li').querySelector('ul');
+                    
+                    if(submenu) {
+                        // Abrir o cerrar ese submenú específico
+                        submenu.classList.toggle('mostrar-submenu');
+                        
+                        // Lógica corregida para rotar la flecha correctamente
+                        if(flecha.classList.contains('fa-chevron-down')) {
+                            // Si era originalmente una flecha a la derecha, la regresamos a la derecha
+                            if(flecha.getAttribute('data-origen') === 'derecha') {
+                                flecha.classList.replace('fa-chevron-down', 'fa-chevron-right');
+                            } else {
+                                flecha.classList.replace('fa-chevron-down', 'fa-chevron-up');
+                            }
+                        } else if(flecha.classList.contains('fa-chevron-up')) {
+                            flecha.classList.replace('fa-chevron-up', 'fa-chevron-down');
+                        } else if(flecha.classList.contains('fa-chevron-right')) {
+                            // Guardamos que esta flecha era de derecha para recordarlo al cerrarla
+                            flecha.setAttribute('data-origen', 'derecha');
+                            flecha.classList.replace('fa-chevron-right', 'fa-chevron-down');
+                        }
+                    }
+                });
+            });
+
+            // 3. Cerrar el menú principal solo cuando se toca un enlace real (no una flecha)
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    // Si el usuario tocó exactamente la flecha (ícono), no cerramos el menú general
+                    if (!e.target.classList.contains('fa-chevron-down') && 
+                        !e.target.classList.contains('fa-chevron-right') && 
+                        !e.target.classList.contains('fa-chevron-up')) {
+                        
+                        navLinks.classList.remove('active');
+                        if(mobileMenuBtn) {
+                            const icon = mobileMenuBtn.querySelector('i');
+                            if(icon) {
+                                icon.classList.remove('fa-times');
+                                icon.classList.add('fa-bars');
+                            }
+                        }
+                    }
+                });
+            });
         });
     </script>
 </body>

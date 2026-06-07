@@ -43,154 +43,225 @@ img {
 @media (max-width: 768px) {
     
     /* ========================================= */
-    /* CORRECCIÓN DE CAPAS (Z-INDEX NUCLEAR)     */
+    /* 1. HEADER (Logo y Botón en las esquinas)  */
     /* ========================================= */
-    
-    /* 1. Darle el poder absoluto a toda la barra superior */
     .navbar {
         position: relative !important;
-        z-index: 999999 !important; /* Un número gigante para ganarle al carrusel */
-        background-color: #ffffff !important; /* Asegura que el fondo sea blanco */
-        overflow: visible !important; /* Evita que se corte el menú invisblemente */
+        z-index: 999999 !important;
+        background-color: #ffffff !important;
+        overflow: visible !important;
     }
 
-    /* 2. BARRA DE NAVEGACIÓN (Contenedor) */
     .nav-container {
         display: flex !important;
-        flex-direction: row !important; /* Fuerza a que estén en la misma línea */
-        justify-content: space-between !important; /* Logo a la izq, botón a la der */
+        flex-direction: row !important;
         align-items: center !important;
         width: 100% !important;
-        box-sizing: border-box !important;
         padding: 15px 20px !important;
+        position: relative !important;
+        box-sizing: border-box !important;
     }
 
-    /* Asegurar que el logo no empuje al botón */
-    .logo {
-        margin: 0 !important;
+    .logo { 
+        margin: 0 !important; 
         padding: 0 !important;
+    }
+
+    .logo-img { 
+        max-height: 50px !important; 
         width: auto !important;
     }
 
-    .logo-img {
-        max-height: 60px !important; /* Altura ideal para móviles */
-    }
-
-    /* Estilo limpio y grande para el botón de 3 rayitas */
+    /* El botón se clava en la esquina superior derecha */
     .menu-toggle {
         display: block !important; 
-        background: transparent !important; /* Quita el fondo gris */
-        border: none !important; /* Quita el borde feo */
-        font-size: 30px !important; /* Ícono más grande y fácil de tocar */
-        color: #144d29 !important; /* Color verde DEMP */
-        padding: 5px 10px !important; /* Hace que el área táctil sea más grande */
-        margin: 0 !important;
+        position: absolute !important;
+        right: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important; /* Centrado vertical perfecto */
+        background: transparent !important;
+        border: none !important;
+        font-size: 30px !important;
+        color: #144d29 !important;
         cursor: pointer;
         outline: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
     
-    /* 3. Diseño de la lista desplegable (Forzando la visibilidad) */
+    /* ========================================= */
+    /* 2. MENÚ PRINCIPAL DESPLEGABLE (CORREGIDO) */
+    /* ========================================= */
     ul#nav-links {
-        display: none !important; /* Oculto por defecto */
+        display: none !important;
         position: absolute !important;
-        top: 100% !important; /* Baja justo debajo de la barra */
+        top: 100% !important;
         left: 0 !important;
         width: 100% !important;
         background-color: #ffffff !important;
-        padding: 20px 0 !important;
-        box-shadow: 0px 15px 20px rgba(0,0,0,0.2) !important;
-        z-index: 999999 !important; /* Igual de alto que la barra principal */
+        padding: 20px 10px 20px 20px !important; /* Ajuste de padding */
+        box-shadow: 0px 15px 20px rgba(0,0,0,0.1) !important;
+        z-index: 999999 !important;
+        list-style: none !important;
+        margin: 0 !important;
+        text-align: left !important; /* Fuerza el texto a la izquierda */
     }
 
-    /* Esta es la clase que el JavaScript activa al tocar el botón */
     ul#nav-links.active {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important;
-        gap: 15px !important;
+        align-items: flex-start !important; /* Alinea los elementos al inicio (izq) */
     }
 
-    /* Asegurar que los botones del menú se vean bien separados */
     ul#nav-links li {
-        width: 100%;
-        margin-bottom: 5px;
+        width: 100% !important;
+        margin-bottom: 10px !important;
+        list-style: none !important;
+        text-align: left !important;
+    }
+
+    /* Aseguramos que los enlaces se vean como bloques completos */
+    ul#nav-links li a {
+        display: block !important;
+        width: 100% !important;
+        text-decoration: none !important;
+        color: #334155 !important;
+        font-weight: 600 !important;
     }
 
     /* ========================================= */
-    /* SOLUCIÓN AL MENÚ DESPLEGABLE              */
+    /* 3. SUBMENÚS (Ocultos con flechas)         */
     /* ========================================= */
-    
-    /* En celulares, es mejor mostrar los submenús ya desplegados como una lista continua */
-    .dropdown-content, .nested-dropdown-content {
-        display: flex !important;
+    .dropdown-content, 
+    .nested-dropdown-content {
+        display: none !important; /* OCULTOS por defecto */
         flex-direction: column !important;
-        padding-left: 15px !important; /* Sangría para diferenciar que es un submenú */
+        padding-left: 20px !important;
         background-color: transparent !important;
         border: none !important;
-        position: relative !important; /* Mantiene el submenú integrado en la lista */
+        position: relative !important;
         box-shadow: none !important;
+        gap: 15px !important;
+        margin-top: 15px !important;
+        list-style: none !important; /* Quita los puntos/cuadritos */
+        opacity: 1 !important; /* Obliga a verse cuando se abra */
+        visibility: visible !important;
+    }
+
+    .dropdown-content li, 
+    .nested-dropdown-content li {
+        list-style: none !important;
+    }
+
+    /* Esta clase "mostrar-submenu" es la que activará el JavaScript al tocar la flecha */
+    .dropdown-content.mostrar-submenu, 
+    .nested-dropdown-content.mostrar-submenu {
+        display: flex !important;
     }
     
-    /* Le quitamos la flechita en celulares porque ya estará abierto */
+    /* Diseño de las flechas (Visibles, grandes y a la derecha) */
     .fa-chevron-down, .fa-chevron-right {
-        display: none !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        float: right !important; /* Las manda al extremo derecho del menú */
+        margin-right: 40px !important;
+        padding: 8px 15px !important;
+        background-color: #f1f5f9 !important; /* Cajita gris para saber que se toca */
+        border-radius: 5px !important;
+        color: #144d29 !important;
+        font-size: 14px !important;
+        cursor: pointer;
     }
 
     /* ========================================= */
-    /* SOLUCIÓN AL CONTENIDO APRETADO            */
+    /* 4. CONTENIDO APRETADO UNIVERSAL           */
     /* ========================================= */
-    
-    /* Forzar a todos los contenedores a apilarse verticalmente (1 sola columna) */
-    .grid-container, .contenedor-cursos, .cursos-list, .blog-grid, .servicios-grid, [class*="grid"] {
+    .grid-container, .contenedor-cursos, .cursos-list, .blog-grid, .servicios-grid,
+    [class*="grid"], [class*="contenedor"], [class*="container"] {
         display: flex !important;
         flex-direction: column !important;
         width: 100% !important;
-        gap: 25px !important;
+        gap: 30px !important;
     }
 
-    /* Forzar a las tarjetas individuales a usar todo el ancho de la pantalla */
-    .tarjeta, .tarjeta-curso, .curso-item, .blog-post, .columna, .card {
+    .tarjeta, .tarjeta-curso, .curso-item, .blog-post, .columna, .card,
+    .articulo-blog, .servicio-item {
         width: 100% !important;
-        max-width: 100% !important; /* Evita que se queden delgaditas */
+        max-width: 100% !important; 
         min-width: 100% !important;
-        margin: 0 0 20px 0 !important;
+        margin: 0 0 25px 0 !important;
         box-sizing: border-box !important;
+        display: block !important;
     }
     
-    /* Asegurar que las imágenes de los cursos/blogs también ocupen bien el espacio */
-    .tarjeta img, .curso-item img, .blog-post img {
+    .tarjeta img, .curso-item img, .blog-post img, .articulo-blog img {
         width: 100% !important;
         height: auto !important;
         object-fit: cover !important;
+        border-radius: 8px !important;
     }
 
     /* ========================================= */
-    /* ESPACIADOS, TEXTOS Y FOOTER               */
+    /* 5. ESPACIADOS Y FOOTER                    */
     /* ========================================= */
-    
     .hero-curso, .seccion-blanca {
-        padding: 25px 15px; /* Reduce el relleno interno */
-        margin-left: 15px;  /* Reduce los márgenes externos */
+        padding: 25px 15px; 
+        margin-left: 15px; 
         margin-right: 15px;
     }
-
-    .hero-curso h1, .seccion-titulo {
-        font-size: 1.8rem; /* Achica los títulos para que no se corten */
+    .hero-curso h1, .seccion-titulo { 
+        font-size: 1.8rem; 
+    }
+    .carrusel-texto h2 { 
+        font-size: 1.5rem !important; 
+    }
+    .footer-container { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 30px; 
+    }
+    .footer-col { 
+        align-items: center; 
     }
 
-    /* Ajustar un poco el texto del carrusel para que no choque con las flechas */
-    .carrusel-texto h2 {
-        font-size: 1.5rem !important;
+    /* ========================================= */
+    /* 6. ESTÉTICA DE LAS TARJETAS (BLOG/CURSOS) */
+    /* ========================================= */
+    .blog-post, .tarjeta, .curso-item, .articulo-blog {
+        position: relative !important;
+        padding: 20px !important;
+        background-color: #ffffff !important; 
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        height: auto !important; /* <--- Permite que la tarjeta crezca con el botón */
     }
 
-    /* PIE DE PÁGINA (Footer) */
-    .footer-container {
-        flex-direction: column; /* Apila las 3 columnas del footer */
-        text-align: center;
-        gap: 30px;
+    /* Para que el texto no se vea pegado a los bordes */
+    .blog-post p, .tarjeta p, .articulo-blog p {
+        margin-bottom: 15px !important;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
     }
-    
-    .footer-col {
-        align-items: center;
+
+    /* Para acomodar los botones de Leer más / Registro y evitar que se amontonen */
+    .blog-post button, .blog-post a.btn, 
+    .tarjeta button, .tarjeta a.btn,
+    .articulo-blog button, .articulo-blog a,
+    .blog-grid a, .blog-grid button {
+        position: relative !important; /* <--- Esto anula la posición anclada de PC */
+        bottom: auto !important; /* <--- Libera el botón del fondo */
+        left: auto !important;
+        transform: none !important;
+        display: block !important; /* Fuerza a que ocupe su propia línea */
+        width: 100% !important;
+        max-width: 200px !important;
+        margin: 20px auto !important; /* Lo centra y le da espacio arriba y abajo */
+        padding: 12px 20px !important;
+        z-index: 10 !important;
     }
 }
