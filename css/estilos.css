@@ -21,3 +21,69 @@
 @import url('paginas/blog.css');
 @import url('paginas/contacto.css');
 
+/* =========================================
+   DISEÑO RESPONSIVE (MÓVILES Y TABLETS)
+   ========================================= */
+
+/* Regla universal de seguridad para imágenes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* El "Switch" mágico: Si la pantalla es de 768px o menos, aplica esto: */
+@media (max-width: 768px) {
+    
+    /* 1. BARRA DE NAVEGACIÓN */
+    .nav-container {
+        flex-direction: column; /* Pone el logo arriba y los links abajo */
+        align-items: center;
+        padding: 15px;
+    }
+    
+    .nav-links {
+        flex-direction: column; /* Apila los botones del menú */
+        text-align: center;
+        gap: 15px;
+        width: 100%;
+        padding-top: 15px;
+    }
+
+    /* Evita que los submenús floten en el celular y los integra a la lista */
+    .dropdown-content, .nested-dropdown-content {
+        position: relative; 
+        width: 100%;
+        box-shadow: none;
+        left: 0;
+        top: 0;
+        background-color: #f8fafc;
+    }
+
+    /* 2. TARJETAS Y CONTENIDO (Cursos, Servicios, etc.) */
+    .grid-4, .grid-3, .grid-2 {
+        grid-template-columns: 1fr; /* Todo se vuelve 1 sola columna vertical */
+        gap: 20px;
+    }
+
+    /* 3. ESPACIADOS Y TEXTOS */
+    .hero-curso, .seccion-blanca {
+        padding: 25px 15px; /* Reduce el relleno interno */
+        margin-left: 15px;  /* Reduce los márgenes externos */
+        margin-right: 15px;
+    }
+
+    .hero-curso h1, .seccion-titulo {
+        font-size: 1.8rem; /* Achica los títulos para que no se corten */
+    }
+
+    /* 4. PIE DE PÁGINA (Footer) */
+    .footer-container {
+        flex-direction: column; /* Apila las 3 columnas del footer */
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-col {
+        align-items: center;
+    }
+}
